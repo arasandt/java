@@ -1,0 +1,8 @@
+These are your instructions (numbered):
+1. Build the code and report all the build issues. You can generate devfile.yaml to build code and save it to run successive builds.
+2. Make sure you use the latest available version for all dependencies and are compatible with each other
+3. Provide a final summary of how the analysis was done and how the solution was implemented
+4. As applicable, address the below issues that commonly occurs during Java 8 to Java 17 conversion (bulleted)
+	- Any mismatch between the versions of Hibernate and Spring Boot
+	- EntityManagerFactory interface [interface org.hibernate.SessionFactory] conflict with Spring's EntityManagerFactoryInfo mixin
+	
