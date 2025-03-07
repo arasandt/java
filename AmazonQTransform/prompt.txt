@@ -1,0 +1,3 @@
+Build the code and report to me all the build issues. You can generate devfile to build code and save it to run successive builds. Address the below issues, if applicable
+1. Any mismatch between the versions of Hibernate and Spring Boot
+2. EntityManagerFactory interface [interface org.hibernate.SessionFactory] conflict with Spring's EntityManagerFactoryInfo mixin
