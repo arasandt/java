@@ -1,0 +1,26 @@
+schemaVersion: 2.2.0
+metadata:
+  name: java-maven
+components:
+  - name: maven
+    container:
+      image: maven:3.8-openjdk-17
+      memoryLimit: 2Gi
+      mountSources: true
+      command: ['tail', '-f', '/dev/null']
+commands:
+  - id: build
+    exec:
+      component: maven
+      commandLine: mvn clean package
+      workingDir: ${PROJECT_SOURCE}
+  - id: test
+    exec:
+      component: maven
+      commandLine: mvn test
+      workingDir: ${PROJECT_SOURCE}
+  - id: run
+    exec:
+      component: maven
+      commandLine: mvn spring-boot:run
+      workingDir: ${PROJECT_SOURCE}
