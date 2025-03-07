@@ -18,8 +18,12 @@ import java.util.List;
 @Controller
 public class EmployeeController {
 
+    private final EmployeeService employeeService;
+    
     @Autowired
-    private EmployeeService employeeService;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     // display list of employee
 
@@ -64,9 +68,9 @@ public class EmployeeController {
     }
 
     @GetMapping("/page/{pageNo}")
-    public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
-                                @RequestParam("sortField") String sortField,
-                                @RequestParam("sortDir") String sortDir,
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
+                                @RequestParam(value = "sortField", defaultValue = "firstName") String sortField,
+                                @RequestParam(value = "sortDir", defaultValue = "asc") String sortDir,
                                 Model model) {
         int pageSize = 5;
 
