@@ -1,6 +1,6 @@
 package pagination.sort.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * @Author: apple
