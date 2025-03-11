@@ -1,0 +1,33 @@
+schemaVersion: 2.2.0
+metadata:
+  name: java-spring-boot
+  version: 1.2.0
+  displayName: Java Spring Boot
+components:
+  - name: maven
+    container:
+      image: maven:3.8-openjdk-17
+      memoryLimit: 1G
+      mountSources: true
+      volumeMounts:
+        - name: m2
+          path: /root/.m2
+  - name: m2
+    volume:
+      size: 1G
+commands:
+  - id: build
+    exec:
+      component: maven
+      commandLine: 'mvn clean install'
+      workingDir: ${PROJECT_SOURCE}
+  - id: run
+    exec:
+      component: maven
+      commandLine: 'mvn spring-boot:run'
+      workingDir: ${PROJECT_SOURCE}
+  - id: debug
+    exec:
+      component: maven
+      commandLine: 'mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000"'
+      workingDir: ${PROJECT_SOURCE}

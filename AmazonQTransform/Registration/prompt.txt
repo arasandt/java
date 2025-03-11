@@ -1,0 +1,9 @@
+These are your instructions (numbered):
+1. Build the project and identify all the build issues. You can generate devfile.yaml to build code and save it to run successive builds. 
+2. Always build to code with tests to make sure there are no build errors. If there are build errors, identify the errors and resolve them. Continue this until build is successful.
+3. Make sure you use the latest available version for all dependencies and are compatible with each other
+4. Provide a final comprehensive summary, in markdown file "summary.md", of how the analysis was done and how the solution was implemented
+5. As applicable, address the below issues(bulleted). Make sure you review each one of the below and address the issue. Absolutely, do not skip checking for these issues.
+	- Any mismatch between the versions of Hibernate and Spring Boot
+	- EntityManagerFactory interface [interface org.hibernate.SessionFactory] conflict with Spring's EntityManagerFactoryInfo mixin
+	- Hibernate might contain deprecated dialect. Update the dialect with correct one.
