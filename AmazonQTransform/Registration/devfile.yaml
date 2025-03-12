@@ -1,0 +1,25 @@
+schemaVersion: 2.2.0
+metadata:
+  name: java-maven-project
+components:
+  - name: tools
+    container:
+      image: quay.io/eclipse/che-java11-maven:next
+      memoryLimit: 512Mi
+      mountSources: true
+commands:
+  - id: build
+    exec:
+      component: tools
+      commandLine: mvn clean install
+      workingDir: ${PROJECT_SOURCE}
+  - id: test
+    exec:
+      component: tools
+      commandLine: mvn test
+      workingDir: ${PROJECT_SOURCE}
+  - id: run
+    exec:
+      component: tools
+      commandLine: java -jar target/sort-0.0.1.jar
+      workingDir: ${PROJECT_SOURCE}
