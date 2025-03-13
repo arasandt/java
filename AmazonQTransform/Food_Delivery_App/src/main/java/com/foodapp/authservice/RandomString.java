@@ -9,7 +9,7 @@ public class RandomString {
 	    Random rn = new Random();
 	    int number = rn.nextInt(999999);
 
-	    return String.format("%06d", number);
+	    return "%06d".formatted(number);
 	}
 
 }

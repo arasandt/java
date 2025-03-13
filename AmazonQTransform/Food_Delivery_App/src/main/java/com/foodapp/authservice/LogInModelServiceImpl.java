@@ -35,7 +35,7 @@ public class LogInModelServiceImpl implements LogInModelService {
 		
 		Optional<SignUpModel> opt = signUpDAO.findById(loginData.getUserId());
 		
-		if(!opt.isPresent())
+		if(opt.isEmpty())
 		{
 			throw new AuthorizationException("Invalid Login UserId");
 		}
@@ -71,7 +71,7 @@ public class LogInModelServiceImpl implements LogInModelService {
 	public String LogOut(String key) throws AuthorizationException {
 		
 		Optional<UserSession> currentUserOptional = userSessionDAO.findByUUID(key);
-		if(!currentUserOptional.isPresent())
+		if(currentUserOptional.isEmpty())
 		{
 			throw new AuthorizationException("Invalid credentials...");
 		}

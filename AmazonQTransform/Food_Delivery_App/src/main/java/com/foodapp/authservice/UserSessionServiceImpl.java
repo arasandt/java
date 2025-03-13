@@ -26,7 +26,7 @@ public class UserSessionServiceImpl implements UserSessionService {
 	public UserSession getUserSession(String key) throws AuthorizationException {
 		
 		Optional<UserSession> currentUser = userSessionDAO.findByUUID(key);
-		if(!currentUser.isPresent())
+		if(currentUser.isEmpty())
 		{
 			throw new AuthorizationException("Not Authorized..!!");
 		}
@@ -37,7 +37,7 @@ public class UserSessionServiceImpl implements UserSessionService {
 	public Integer getUserSessionId(String key) throws AuthorizationException {
 		
 		Optional<UserSession> currentUser = userSessionDAO.findByUUID(key);
-		if(!currentUser.isPresent())
+		if(currentUser.isEmpty())
 		{
 			throw new AuthorizationException("Not Authorized..!!");
 		}
@@ -50,7 +50,7 @@ public class UserSessionServiceImpl implements UserSessionService {
 	public SignUpModel getSignUpDetails(String key) {
 		
 		Optional<UserSession> currentUser = userSessionDAO.findByUUID(key);
-		if(!currentUser.isPresent())
+		if(currentUser.isEmpty())
 		{
 			return null;
 		}
