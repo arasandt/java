@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.shopizer</groupId>
+        <artifactId>shopizer</artifactId>
+        <version>2.6.0</version>
+    </parent>
+
+    <name>sm-core-modules</name>
+    <artifactId>sm-core-modules</artifactId>
+    <packaging>jar</packaging>
+    <description>sm-core-modules is used for creating new external module implementations deployed in Maven.</description>
+    <url>http://www.shopizer.com</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <shopizer.version>2.6.0</shopizer.version>
+        <java-version>1.8</java-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.salesmanager.core</groupId>
+            <artifactId>sm-core-model</artifactId>
+            <version>${shopizer.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.salesmanager.core</groupId>
+            <artifactId>sm-core-model-catalog</artifactId>
+            <version>${shopizer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.salesmanager.core</groupId>
+            <artifactId>sm-core-model-customer</artifactId>
+            <version>${shopizer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.salesmanager.core</groupId>
+            <artifactId>sm-core-model-merchant</artifactId>
+            <version>${shopizer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.salesmanager.core</groupId>
+            <artifactId>sm-core-model-order</artifactId>
+            <version>${shopizer.version}</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>oss-sonatype-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>oss-sonatype-releases</id>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
